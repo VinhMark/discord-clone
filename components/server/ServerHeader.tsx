@@ -40,7 +40,10 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
               Invite People
               <UserPlus className='w-4 h-4 ml-auto' />
             </DropdownMenuItem>
-            <DropdownMenuItem className='text-neutral-600 dark:text-neutral-400 px-3 py-4 text-sm cursor-pointer'>
+            <DropdownMenuItem
+              className='text-neutral-600 dark:text-neutral-400 px-3 py-4 text-sm cursor-pointer'
+              onClick={() => onOpen('createChannel', { server })}
+            >
               Create Channel
               <PlusCircle className='w-4 h-4 ml-auto' />
             </DropdownMenuItem>
@@ -55,18 +58,23 @@ const ServerHeader = ({ server, role }: ServerHeaderProps) => {
               Server Settings
               <Settings className='w-4 h-4 ml-auto' />
             </DropdownMenuItem>
-            <DropdownMenuItem className='text-neutral-600 dark:text-neutral-400 px-3 py-4 text-sm cursor-pointer' onClick={() => onOpen('members', { server })}>
+            <DropdownMenuItem
+              className='text-neutral-600 dark:text-neutral-400 px-3 py-4 text-sm cursor-pointer'
+              onClick={() => onOpen('members', { server })}
+            >
               Manager Members
               <Users className='w-4 h-4 ml-auto' />
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className='text-rose-500 px-3 py-4 text-sm cursor-pointer'>
+            <DropdownMenuItem className='text-rose-500 px-3 py-4 text-sm cursor-pointer'
+             onClick={() => onOpen('deleteServer', {server})}>
               Delete Server
               <Trash className='w-4 h-4 ml-auto' />
             </DropdownMenuItem>
           </>
         ) : (
-          <DropdownMenuItem className='text-rose-500 px-3 py-4 text-sm cursor-pointer'>
+          <DropdownMenuItem className='text-rose-500 px-3 py-4 text-sm cursor-pointer'
+           onClick={() => onOpen('leaveServer', {server})}>
             Leave Server
             <LogOut className='w-4 h-4 ml-auto' />
           </DropdownMenuItem>
