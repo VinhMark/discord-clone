@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import qs from 'query-string';
 import { useModal } from '@/hooks/use-modal-store';
-import { useOrigin } from '@/hooks/use-origin';
-import { ServerWithMembersWithProps } from '@/types';
+import { ServerWithMembersWithProfiles } from '@/types';
 import {
   MoreVertical,
   ShieldAlert,
@@ -50,10 +49,9 @@ const MemberModal = () => {
   const [loadingId, setLoadingId] = useState('');
   const router = useRouter();
   const { type, isOpen, onClose, data, onOpen } = useModal();
-  const origin = useOrigin();
 
   const isModalOpen = isOpen && type === 'members';
-  const { server } = data as { server: ServerWithMembersWithProps };
+  const { server } = data as { server: ServerWithMembersWithProfiles };
 
   const onKick = async (memberId: string) => {
     try {
