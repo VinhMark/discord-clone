@@ -59,8 +59,8 @@ const EditChannelModal = () => {
   });
 
   useEffect(() => {
-    form.setValue('name', channel!.name);
-    form.setValue('type', channel!.type);
+    form.setValue('name', channel?.name || '');
+    form.setValue('type', channel?.type || ChannelType.TEXT);
   }, [form, channel]);
 
   const isLoading = form.formState.isSubmitting;
