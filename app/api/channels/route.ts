@@ -1,7 +1,6 @@
 import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 import { MemberRole } from '@prisma/client';
-import { useParams, useSearchParams } from 'next/navigation';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
@@ -19,7 +18,7 @@ export async function POST(req: Request) {
       return new NextResponse('Server ID missing', { status: 400 });
     }
 
-    if (name === 'general') {
+    if (name.toLowerCase() === 'general') {
       return new NextResponse("Name cannot be 'general'", { status: 400 });
     }
 
