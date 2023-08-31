@@ -38,7 +38,7 @@ export async function DELETE(req: Request, { params }: { params: { channelId: st
           delete: {
             id: params?.channelId,
             name: {
-              not: 'General',
+              not: 'general',
             },
           },
         },
@@ -71,7 +71,7 @@ export async function PATCH(req: Request, { params }: { params: { channelId: str
       return new NextResponse('Channel ID missing', { status: 400 });
     }
 
-    if (name.toLowerCase() === 'general') {
+    if (name === 'general') {
       return new NextResponse("Name cannot be 'general'", { status: 400 });
     }
 
@@ -93,7 +93,7 @@ export async function PATCH(req: Request, { params }: { params: { channelId: str
             where: {
               id: params?.channelId,
               name: {
-                notIn: ['General', 'general'],
+                not: 'general',
               },
             },
             data: {
