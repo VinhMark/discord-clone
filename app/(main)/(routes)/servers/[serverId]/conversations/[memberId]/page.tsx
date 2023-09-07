@@ -51,29 +51,27 @@ const MemberIdPage = async ({ params }: MemberIdPageProps) => {
         type='conversations'
         imageUrl={orderMember.profile.imageUrl}
       />
-      
+
       <ChatMessages
         member={memberOne}
         name={orderMember.profile.name}
-        chatId={orderMember.id}
+        chatId={conversation.id}
         type='conversation'
-        apiUrl='/api/messages'
-        socketUrl='/api/socket/messages'
+        apiUrl='/api/direct-messages'
+        socketUrl='/api/socket/direct-messages'
         socketQuery={{
-          memberId: orderMember.id,
-          serverId: params.serverId,
+          conversationId: conversation.id,
         }}
-        paramKey='channelId'
-        paramValue={orderMember.id}
+        paramKey='conversationId'
+        paramValue={conversation.id}
       />
 
       <ChatInput
-        apiUrl='/api/socket/messages'
+        apiUrl='/api/socket/direct-messages'
         name={orderMember.profile.name}
         type='conversation'
         query={{
-          channelId: orderMember.id,
-          serverId: params.serverId,
+          conversationId: conversation.id,
         }}
       />
     </div>

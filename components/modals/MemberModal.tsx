@@ -100,7 +100,7 @@ const MemberModal = () => {
         <DialogHeader className='pt-8 px-6'>
           <DialogTitle className='text-2xl text-center font-bold'>Manager Members</DialogTitle>
           <DialogDescription className='text-center text-zinc-500'>
-            {server?.members.length} Members
+            {server?.members?.length} Members
           </DialogDescription>
         </DialogHeader>
         <ScrollArea className='mt-8 max-h-[420px] pr-6'>
