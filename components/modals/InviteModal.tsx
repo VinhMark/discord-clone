@@ -4,10 +4,10 @@ import { useModal } from '@/hooks/use-modal-store';
 import { Check, Copy, RefreshCw } from 'lucide-react';
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui/Label';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { useOrigin } from '@/hooks/use-origin';
+import { Label } from '../ui/Label';
 import { useState } from 'react';
 import axios from 'axios';
 
